@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Footer = () => {
+const ErorrPage = () => {
   return (
     <div>
-      Footer
+      Error
     </div>
   )
 }
 
-export default Footer
+export default ErorrPage
