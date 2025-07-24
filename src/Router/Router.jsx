@@ -6,11 +6,6 @@ import Home from '../Page/Home';
 import ProtectRouter from '../Components/ProtectRouter'; // Make sure to import this
 
 export default function Router() {
-    const hasVisited = localStorage.getItem('hasVisited') === 'true'; // Fixed typo 'truse' to 'true'
-
-    if(!hasVisited) {
-        localStorage.setItem('hasVisited', 'false');
-    }
 
     const router = createBrowserRouter([
         {
