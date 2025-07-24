@@ -3,7 +3,6 @@ import App from '../App';
 import Profile from '../Page/Profile';
 import ErrorPage from '../Page/ErorrPage';
 import Home from '../Page/Home';
-import Welcome from '../Page/Welcome';
 import ProtectRouter from '../Components/ProtectRouter'; // Make sure to import this
 
 export default function Router() {
@@ -16,7 +15,7 @@ export default function Router() {
     const router = createBrowserRouter([
         {
             path: '/',
-            element: hasVisited ? <App/> : <Welcome/>,
+            element: <App/>,
             errorElement: <ErrorPage/>,
             children: [ 
                 {index: true, element: <Home/>},
