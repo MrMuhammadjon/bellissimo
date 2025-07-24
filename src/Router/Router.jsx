@@ -3,7 +3,8 @@ import App from '../App';
 import Profile from '../Page/Profile';
 import ErrorPage from '../Page/ErorrPage';
 import Home from '../Page/Home';
-import ProtectRouter from '../Components/ProtectRouter'; // Make sure to import this
+import Login from '../Page/Login'
+import ProtectRouter from '../Components/ProtectRouter';
 
 export default function Router() {
 
@@ -14,10 +15,11 @@ export default function Router() {
             errorElement: <ErrorPage/>,
             children: [ 
                 {index: true, element: <Home/>},
+                {path: '/login', element: <Login/>},
                 {
                     path: 'profile',
                     element: (
-                        <ProtectRouter>  // Fixed typo ProtectRouter (if this was intentional)
+                        <ProtectRouter>  
                             <Profile/>
                         </ProtectRouter>
                     )

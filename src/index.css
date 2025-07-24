@@ -31,6 +31,17 @@ body{
   }
 }
 
+@keyframes spinPizaa {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
 /* Tailwind stiliga mos classlar */
 .animate-slide-up {
   animation: slideUp 0.5s ease-out forwards;
@@ -42,4 +53,8 @@ body{
 
 .animate-spin-slow {
   animation: spinSlow 6s linear infinite;
+}
+
+.animate-pizza{
+  animation: spinPizaa 20s linear infinite;
 }

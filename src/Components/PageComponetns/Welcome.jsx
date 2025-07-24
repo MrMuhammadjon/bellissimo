@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { BiPlus } from "react-icons/bi";
 import { useAppContext } from '../../Context/AppContext';
+import PizzaImg from '../../assets/img/pizza-4.png.png'
+import { TypeAnimation } from 'react-type-animation';
 
 const Welcome = () => {
   const [showModal, setShowModal] = useState(false);
   const [closing, setClosing] = useState(false);
   const { responsive } = useAppContext();
 
-  localStorage.clear()
 
   useEffect(() => {
     const hasVisited = localStorage.getItem('hasVisited') === 'true';
@@ -30,19 +31,32 @@ const Welcome = () => {
     <>
       {responsive ? (
         <div className="fixed inset-0 z-50 flex items-end justify-center bg-gray-900/50 backdrop-blur-sm">
-          <div className={`w-full max-w h-[70%] bg-[#006f4c] rounded-t-[40px] flex flex-col items-center justify-end text-white shadow-2xl relative overflow-hidden
-            ${closing ? 'animate-slide-down' : 'animate-slide-up'}`}>
+          <div
+            className={`w-full h-[70%] bg-[#006f4c] rounded-t-[40px] flex flex-col items-center justify-end text-white shadow-2xl relative overflow-hidden 
+        ${closing ? 'animate-slide-down' : 'animate-slide-up'}`}
+          >
+            {/* Title + Pizza Image */}
+            <div className="w-full h-[50%] text-3xl font-bold text-yellow-300 text-center relative mb-10">
+              <TypeAnimation
+                sequence={[
+                  'BELISSIMO CLUB AZOSIGA AYLANISHGA TAYYORMISIZ!', 1000,
+                ]}
+                wrapper="span"
+                speed={50}
+                repeat={Infinity}
+              />
+              <img
+                src={PizzaImg}
+                alt="Promo"
+                className="h-[100%] w-[100%] object-contain m-auto transition-transform duration-500 hover:scale-105 absolute top-[40%] left-1/2 -translate-x-1/2 scale-110 animate-pizza"
+              />
+            </div>
 
-            <img
-              src="https://bellissimo.uz/_next/image?url=https%3A%2F%2Fio.bellissimo.uz%2Fimages%2F303af063-dd09-41ad-a0fd-e7beeb22f4e0_uz.jpg&w=1920&q=75"
-              alt="Promo"
-              className="h-[65%] w-full object-cover translate-y-12 rounded-t-[40px] transition-transform duration-500 hover:scale-105"
-            />
-
+            {/* Content */}
             <div className="text-md flex flex-col gap-6 z-10 bg-white text-black px-5 py-7 rounded-t-3xl w-full">
               <BiPlus
                 onClick={handleClose}
-                className="absolute top-[1%] z-20 right-4 text-[40px] text-white animate-spin-slow cursor-pointer"
+                className="absolute top-4 right-4 text-[40px] text-white animate-spin-slow cursor-pointer z-20"
               />
               <p>
                 Biz har bir xaridingizdan <strong>2% keshbek</strong> sovgʻa qilish uchun sodiqlik dasturimizni ishga tushirdik! Yana tugʻilgan kunga sovgʻalar va eksklyuziv aksiyalarda ishtirok imkoniyati ham bor. Roʻyxatdan oʻting va <strong>Bellkoinlarni</strong> hoziroq yigʻishni boshlang!
