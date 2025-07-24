@@ -38,7 +38,7 @@ const RenderProducts = () => {
 
   if (status === 'loading') {
     return (
-      <div className="grid grid-cols-2 md:grid-cols-4 w-full gap-4 p-4">
+      <div className="grid grid-cols-1 md:grid-cols-4 w-full gap-4 p-4">
         {[...Array(6)].map((_, i) => (
           <div key={i} className="flex items-center justify-center">
             <ProductSkeleton />
@@ -61,7 +61,7 @@ const RenderProducts = () => {
   if (status === 'failed') return <p className="text-center text-red-500">Xatolik yuz berdi!</p>;
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 w-full gap-4 p-4">
+    <div className="grid grid-cols-2 md:grid-cols-4 w-full gap-4 p-4 flex-col items-center justify-center">
       {filteredProducts.map(product => {
         const isFavorite = favorites.some(fav => fav.id === product.id);
 
@@ -88,7 +88,7 @@ const RenderProducts = () => {
                 />
               </button>
             </div>
-            <p className='text-sm mt-2'>{product.title}</p>
+            <p className='text-sm mt-2'>{product.ingredients}</p>
             <p className='text-xl'>${product.price}</p>
           </div>
         );

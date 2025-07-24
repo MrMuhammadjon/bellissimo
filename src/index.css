@@ -58,3 +58,13 @@ body{
 .animate-pizza{
   animation: spinPizaa 20s linear infinite;
 }
+
+.sticky-logo {
+  display: none;
+}
+
+@supports (position: sticky) {
+  .sticky-logo {
+    display: flex;
+  }
+}
