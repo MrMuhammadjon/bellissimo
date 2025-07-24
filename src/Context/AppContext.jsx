@@ -3,6 +3,7 @@ import {createContext, useContext, useEffect, useState } from "react";
 export const AppContext = createContext();
 
 export const AppContextProvider = ({ children }) => {
+    const [user, setUser] = useState(true)
     const [responsive, setResponsive] = useState(window.innerWidth <= 768);
 
     useEffect(() => {
@@ -18,6 +19,8 @@ export const AppContextProvider = ({ children }) => {
     }, [])
 
     const ContextValue = {
+        user,
+        setUser,
         responsive,
         setResponsive
     }
