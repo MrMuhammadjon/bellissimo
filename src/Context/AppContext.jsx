@@ -5,6 +5,7 @@ export const AppContext = createContext();
 export const AppContextProvider = ({ children }) => {
     const [user, setUser] = useState(false)
     const [responsive, setResponsive] = useState(window.innerWidth <= 768);
+    const [active, setActive] = useState("all");
 
     useEffect(() => {
         const handleResize = () => {
@@ -22,7 +23,9 @@ export const AppContextProvider = ({ children }) => {
         user,
         setUser,
         responsive,
-        setResponsive
+        setResponsive,
+        active,
+        setActive
     }
 
     return (

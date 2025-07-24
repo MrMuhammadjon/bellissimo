@@ -48,17 +48,17 @@ const Header = () => {
                 <BiMenu size={24} onClick={() => setMenuOpen(true)} />
               </div>
 
-              <div className="flex items-center justify-center p-1 gap-2 bg-gray-100 rounded-full shadow-inner w-[250px] mt-4">
+              <div className="flex items-center justify-center p-1 gap-2 bg-gray-100 rounded-full shadow-inner w-[240px] mt-4">
                 <button
                   onClick={() => setIsDelivery(true)}
-                  className={`flex-1 px-4 py-2 rounded-full text-[12px] font-medium transition 
+                  className={`flex-1 px-2 py-2 rounded-full text-[12px] font-medium transition 
           ${isDelivery ? "bg-white text-black shadow" : "text-gray-500"}`}
                 >
                   Yetkazib berish
                 </button>
                 <button
                   onClick={() => setIsDelivery(false)}
-                  className={`flex-1 px-4 py-2 rounded-full text-[12px] font-medium transition 
+                  className={`flex-1 px-2 py-2 rounded-full text-[12px] font-medium transition 
           ${!isDelivery ? "bg-white text-black shadow" : "text-gray-500"}`}
                 >
                   Olib ketish
