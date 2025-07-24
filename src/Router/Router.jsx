@@ -5,6 +5,7 @@ import ErrorPage from '../Page/ErorrPage';
 import Home from '../Page/Home';
 import Login from '../Page/Login'
 import ProtectRouter from '../Components/ProtectRouter';
+import Cart from "../Page/Cart";
 
 export default function Router() {
 
@@ -16,6 +17,7 @@ export default function Router() {
             children: [ 
                 {index: true, element: <Home/>},
                 {path: '/login', element: <Login/>},
+                {path: '/cart', element: <Cart/>},
                 {
                     path: 'profile',
                     element: (

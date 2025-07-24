@@ -65,7 +65,7 @@ const Header = () => {
                 }
               </div>
 
-              <div className="relative">
+              <div onClick={()=> navigate('/cart')} className="relative">
                 <LuShoppingCart size={24} />
                 <span className="absolute -top-2 -right-2 bg-red-700 text-white text-[10px] px-[6px] py-[1px] rounded-full">
                   0
