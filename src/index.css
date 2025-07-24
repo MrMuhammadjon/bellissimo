@@ -1,70 +1,90 @@
 @import "tailwindcss";
 
-body{
-    background-color: white;
+body {
+  background-color: white;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out forwards;
 }
 
 @keyframes slideUp {
   0% {
     transform: translateY(100%);
   }
+
   100% {
     transform: translateY(0);
   }
-}
-
-@keyframes slideDown {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(100%);
-  }
-}
-
-@keyframes spinSlow {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes spinPizaa {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-
-
-/* Tailwind stiliga mos classlar */
-.animate-slide-up {
-  animation: slideUp 0.5s ease-out forwards;
 }
 
 .animate-slide-down {
   animation: slideDown 0.5s ease-in forwards;
 }
 
+@keyframes slideDown {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+
 .animate-spin-slow {
   animation: spinSlow 6s linear infinite;
 }
 
-.animate-pizza{
+@keyframes spinSlow {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-pizza {
   animation: spinPizaa 20s linear infinite;
 }
 
-.sticky-logo {
+@keyframes spinPizaa {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.logo-container {
+  width: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-container.visible {
+  width: 40px;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.logo {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
 
-@supports (position: sticky) {
-  .sticky-logo {
-    display: flex;
-  }
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
