@@ -9,6 +9,8 @@ const RenderProducts = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { items, status } = useSelector(state => state.products);
+  console.log(items);
+  
 
   useEffect(() => {
     AOS.init({ duration: 800, once: true });

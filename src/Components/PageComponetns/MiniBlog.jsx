@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAppContext } from '../../Context/AppContext';
 import { SiBitcoinsv } from "react-icons/si";
 import { BiArrowToTop } from 'react-icons/bi';
+import { data } from 'react-router-dom';
 
 const MiniBlog = () => {
   const { active, setActive } = useAppContext();
@@ -24,25 +25,34 @@ const MiniBlog = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  useEffect(() => {
-    fetch('https://dummyjson.com/products/categories')
+ useEffect(() => {
+    fetch('https://dummyjson.com/recipes')
       .then(res => res.json())
-      .then(data =>
-        setCategories([
-          { slug: 'all', name: 'All' },
-          ...data.map(cat => ({
-            slug: cat,
-            name: cat.name,
-          })),
-        ])
-      );
+      .then(data => {
+        const items = data.recipes;
+
+        const uniqueTags = [
+          'all',
+          ...new Set(
+            items
+              .map(item => item.tags?.[0])
+              .filter(Boolean)
+          ),
+        ];
+
+        const formatted = uniqueTags.map(tag => ({
+          slug: tag,
+          name: tag.charAt(0).toUpperCase() + tag.slice(1), 
+        }));
+
+        setCategories(formatted);
+      });
   }, []);
 
   return (
     <div className={`mt-5 sticky top-0 z-30 bg-white shadow-sm transition-all duration-300`}>
       <div className="flex items-center px-3 py-2 gap-2">
 
-        {/* Logo faqat sticky bo‘lganda chiqadi */}
         <div className={`logo-container ${isSticky ? 'visible' : ''}`}>
           <img
             src="https://bellissimo.uz/_next/image?url=%2Fimages%2Ficon.png&w=828&q=75"
@@ -51,9 +61,8 @@ const MiniBlog = () => {
           />
         </div>
 
-        {/* Kategoriya tugmalari */}
         <div className="flex gap-3 overflow-x-auto scrollbar-hide w-full">
-          {categories.map((cat, index) => (
+           {categories.map((cat, index) => (
             <button
               key={index}
               onClick={() => setActive(cat.slug)}
@@ -69,7 +78,6 @@ const MiniBlog = () => {
         </div>
       </div>
 
-      {/* Scroll to top button */}
       {show && (
         <button
           onClick={scrollToTop}
