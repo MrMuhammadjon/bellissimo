@@ -69,7 +69,9 @@ const MobileMenu = ({ isOpen, onClose }) => {
           </button>
 
           <button className="cursor-pointer flex items-center gap-2 mt-4 p-4 bg-gray-100 rounded-[20px] transform duration-300 hover:py-5">
-            <FaPhoneAlt className='text-1xl text-gray-500' /> Bizga qo'ng'iroq
+            <a href="tel:1174" className='flex gap-3'>
+              <FaPhoneAlt className='text-1xl text-gray-500' /> Bizga qo'ng'iroq
+            </a>
           </button>
 
           {/* Language Switch */}

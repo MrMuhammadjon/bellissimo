@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../Feauters/auth/authSlice";
 import { useNavigate } from "react-router-dom";
 import HomeBtn from "../Components/PageComponetns/HomeBtn";
+import InputMask from "react-input-mask";
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -14,14 +15,15 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // ✅ VALIDATSIYA
+    // VALIDATSIYA
     if (form.name.trim().length < 3) {
       alert("Ismingiz kamida 3 ta belgidan iborat bo'lishi kerak.");
       return;
     }
 
-    if (!/^\d{9,15}$/.test(form.phone)) {
-      alert("Telefon raqam faqat raqamlardan iborat bo'lishi va 9-15 ta raqam bo'lishi kerak.");
+    const cleanedPhone = form.phone.replace(/\D/g, "");
+    if (cleanedPhone.length !== 12) {
+      alert("Telefon raqam to‘liq va to‘g‘ri formatda bo‘lishi kerak.");
       return;
     }
 
@@ -39,8 +41,8 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br ">
-              <HomeBtn/>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br">
+      <HomeBtn />
       <div className="bg-white p-10 rounded-2xl shadow-2xl w-full max-w-md border border-green-200">
         <h2 className="text-3xl font-bold text-center text-green-700 mb-6">Ro'yxatdan o'tish</h2>
 
@@ -54,15 +56,23 @@ const Register = () => {
             className="border border-green-300 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400 transition-all"
             onChange={(e) => setForm({ ...form, name: e.target.value })}
           />
-          <input
-            type="tel"
-            name="phone"
-            required
-            placeholder="📱 Telefon raqam"
+          <InputMask
+            mask="+998 (99) 999 99 99"
+            maskChar={null}
             value={form.phone}
-            className="border border-green-300 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400 transition-all"
             onChange={(e) => setForm({ ...form, phone: e.target.value })}
-          />
+          >
+            {(inputProps) => (
+              <input
+                {...inputProps}
+                type="tel"
+                name="phone"
+                required
+                placeholder="📱 Telefon raqam"
+                className="border border-green-300 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400 transition-all"
+              />
+            )}
+          </InputMask>
           <input
             type="password"
             name="password"

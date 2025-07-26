@@ -32,7 +32,7 @@ const Header = () => {
                       <p>kirish</p>
                     </div>
                   ) : (
-                    <div className="" onClick={()=> navigate('/profile')}>
+                    <div className="" onClick={()=> navigate('/loyalty')}>
                       <LuUser className="text-[24px]" />
                     </div>
                   )
