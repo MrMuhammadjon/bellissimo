@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import { BiMenu } from 'react-icons/bi'
 import { LuPen, LuShoppingCart } from 'react-icons/lu';
 import MobileMenu from './MobileMenu';
+import { useNavigate } from 'react-router-dom';
 
 const HeadComponent = () => {
     const [PlaceOfService, setPlaceOfService] = useState(['Yetkazib berish', 'Olib ketish']);
     const [isDelivery, setIsDelivery] = useState(true);
     const [menuOpen, setMenuOpen] = useState(false);
+    const navigate = useNavigate()
 
 
     return (
