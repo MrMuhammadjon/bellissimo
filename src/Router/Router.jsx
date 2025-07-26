@@ -6,6 +6,7 @@ import Home from '../Page/Home';
 import Login from '../Page/Login'
 import ProtectRouter from '../Components/ProtectRouter';
 import Cart from "../Page/Cart";
+import Register from "../Page/Register";
 
 export default function Router() {
 
@@ -18,6 +19,7 @@ export default function Router() {
                 {index: true, element: <Home/>},
                 {path: '/login', element: <Login/>},
                 {path: '/cart', element: <Cart/>},
+                {path: '/register', element: <Register/>},
                 {
                     path: 'profile',
                     element: (

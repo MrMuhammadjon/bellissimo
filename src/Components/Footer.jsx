@@ -2,71 +2,59 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#262a2c] text-white pt-15 pb-6 px-4 md:px-8">
-      {/* Top Section */}
-      <div className="w-[80%] mx-auto">
-        <div className="border-b border-gray-700 pb-6 mb-6">
-          <img className='w-[100%] m-auto' src="https://bellissimo.uz/_next/image?url=%2Fimages%2Flogo-footer-new.png&w=640&q=75" alt="" />
-          <div className="mt-4">
-            <p className="text-sm md:text-base text-gray-300">RAGAMGA GO'NG'IROG QILING</p>
+    <footer className="bg-[#262a2c] text-white py-10 px-4 md:px-8">
+      <div className="max-w-6xl mx-auto">
+        {/* Logo & Call Section */}
+        <div className="border-b border-gray-700 pb-6 flex flex-col md:flex-row items-center justify-between gap-6">
+          <img 
+            className="w-48 md:w-64"
+            src="https://bellissimo.uz/_next/image?url=%2Fimages%2Flogo-footer-new.png&w=640&q=75" 
+            alt="Bellissimo Logo" 
+          />
+          <div className="text-center md:text-right">
+            <p className="text-sm md:text-base text-gray-300">Raqamga qo‘ng‘iroq qiling</p>
             <a 
               href="tel:1174" 
-              className="inline-block mt-2 text-xl md:text-2xl font-semibold hover:text-red-400 transition-colors"
+              className="inline-block mt-2 text-2xl font-bold text-white hover:text-red-400 transition duration-200"
             >
               1174
             </a>
           </div>
         </div>
 
-        {/* Links Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          {/* First Column */}
+        {/* Link Sections */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mt-10">
+          {/* About Us */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-yellow-300">Biz haqimizda</h3>
-            <ul className="space-y-3">
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">
-                  Ommaviy oferta
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">
-                  Maxfiylik siyosati
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">
-                  Halol sertifikati
-                </a>
-              </li>
+            <h3 className="text-lg font-semibold text-yellow-300 mb-4">Biz haqimizda</h3>
+            <ul className="space-y-2">
+              {["Ommaviy oferta", "Maxfiylik siyosati", "Halol sertifikati"].map((item, idx) => (
+                <li key={idx}>
+                  <a href="#" className="text-gray-400 hover:text-white transition-colors duration-150">
+                    {item}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Second Column */}
+          {/* Contact Us */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-yellow-300">Biz bilan bog'lanish</h3>
-            <ul className="space-y-3">
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">
-                  Bizning ish o'rinlarimiz
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">
-                  Franshiza
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors">
-                  Bizni kuzatib boring
-                </a>
-              </li>
+            <h3 className="text-lg font-semibold text-yellow-300 mb-4">Biz bilan bog‘lanish</h3>
+            <ul className="space-y-2">
+              {["Bizning ish o‘rinlarimiz", "Franshiza", "Bizni kuzatib boring"].map((item, idx) => (
+                <li key={idx}>
+                  <a href="#" className="text-gray-400 hover:text-white transition-colors duration-150">
+                    {item}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="text-center text-sm text-gray-400 pt-4 border-t border-gray-700">
+        {/* Copyright */}
+        <div className="text-center text-sm text-gray-500 mt-10 border-t border-gray-700 pt-4">
           <p>© {new Date().getFullYear()} Bellissimo Pizza. Barcha huquqlar himoyalangan.</p>
         </div>
       </div>
