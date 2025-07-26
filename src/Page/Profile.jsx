@@ -15,10 +15,12 @@ import { logout } from "../Feauters/auth/authSlice";
 import { RxAvatar } from "react-icons/rx";
 import { useNavigate } from "react-router-dom";
 import { Outlet } from "react-router-dom";
+import HomeBtn from "../Components/PageComponetns/HomeBtn";
+import Home from "./Home";
 
 const Profile = () => {
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.auth); // 👈 Foydalanuvchini olish
+  const { user } = useSelector((state) => state.auth);
 
   const menuItems = [
     {
@@ -67,7 +69,8 @@ const Profile = () => {
 
   return (
     <>
-    <Outlet />      
+    <Outlet />   
+    <HomeBtn/>   
     <div className="mx-auto bg-gray-100 min-h-screen p-4 text-sm">
       {/* Header */}
       <div className="flex items-center justify-between p-4 bg-white shadow-sm rounded-md mb-2">

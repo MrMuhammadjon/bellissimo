@@ -6,12 +6,15 @@ import { FaMapMarkerAlt } from 'react-icons/fa';
 import { BiRestaurant } from 'react-icons/bi';
 import { useAppContext } from '../../Context/AppContext';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { LuUser, LuUserCheck } from 'react-icons/lu';
 
 const MobileMenu = ({ isOpen, onClose }) => {
   const [isDelivery, setIsDelivery] = useState(true);
-  const { user } = useAppContext()
-
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const {user} = useSelector(state => state.auth.user)
+
 
   return (
     <div
@@ -44,9 +47,16 @@ const MobileMenu = ({ isOpen, onClose }) => {
                 <MdLogin /> Kirish
               </button>)
             ) : (
-              <button onClick={() => navigate('/profile')} className="flex items-center gap-2 p-3 rounded-full bg-gray-100">
-                <MdPlayCircleFilled /> Profile
-              </button>
+              <div className="">
+                <div className="">
+                  <button onClick={() => navigate('/profile')} className="flex items-center gap-2 p-3 rounded-full bg-gray-100">
+                    <LuUser />
+                  </button>
+                  <div className="">
+                    {user.nme}
+                  </div>
+                </div>
+              </div>
             )
           }
           <button className="flex items-center gap-2 p-3 rounded-full bg-gray-100">
