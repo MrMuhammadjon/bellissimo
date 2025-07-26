@@ -1,13 +1,13 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { lazy } from 'react';
 import App from '../App';
-import Profile from '../Page/Profile';
 import ErrorPage from '../Page/ErorrPage';
-import Home from '../Page/Home';
-import Login from '../Page/Login'
 import ProtectRouter from '../Components/ProtectRouter';
-import Cart from "../Page/Cart";
-import Register from "../Page/Register";
-
+const Home = lazy(() => import('../Page/Home'));
+const Login = lazy(() => import('../Page/Login'));
+const Register = lazy(() => import('../Page/Register'));
+const Profile = lazy(() => import('../Page/Profile'));
+const Cart = lazy(() => import('../Page/Cart'));
 export default function Router() {
 
     const router = createBrowserRouter([

@@ -88,3 +88,23 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+
+
+
+
+.falling-logo {
+  width: 192px;
+  height: 192px;
+  animation: fall 3s ease-in forwards;
+  transform-origin: bottom center;
+}
+
+@keyframes fall {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
