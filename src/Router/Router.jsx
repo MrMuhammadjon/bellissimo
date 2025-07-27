@@ -9,6 +9,7 @@ const Register = lazy(() => import('../Page/Register'));
 const Loyalty = lazy(() => import('../Page/Loyalty'));
 const Cart = lazy(() => import('../Page/Cart'));
 const Profile = lazy(() => import('../Page/Profile'));
+const ProductDetalis = lazy(() => import('../Page/ProductDetalis'));
 export default function Router() {
 
     const router = createBrowserRouter([
@@ -21,6 +22,7 @@ export default function Router() {
                 { path: '/login', element: <Login /> },
                 { path: '/cart', element: <Cart /> },
                 { path: '/register', element: <Register /> },
+                 { path: 'products/:id', element: <ProductDetalis /> },
                 {
                     path: 'profile',
                     element: (

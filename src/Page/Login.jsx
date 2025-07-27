@@ -27,9 +27,9 @@ const Login = () => {
     }
   };
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="h-screen flex justify-center">
       <HomeBtn />
-      <div className="bg-white p-10 rounded-2xl shadow-2xl w-full max-w-md border border-green-200">
+      <div className="bg-white p-10 mt-20 rounded-2xl shadow-2xl w-[90%] h-[400px] md:maz-w-md max-w-md border border-green-200">
         <h1 className="text-4xl font-extrabold text-center text-green-700 mb-6">Kirish</h1>
 
         <form onSubmit={handleLogin} className="flex flex-col gap-5">

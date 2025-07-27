@@ -45,9 +45,9 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-green-100">
+    <div className="min-h-screen flex justify-center bg-gradient-to-br">
       <HomeBtn />
-      <div className="bg-white p-10 rounded-2xl shadow-2xl w-full max-w-md border border-green-200">
+      <div className="bg-white p-10 mt-20 rounded-2xl shadow-2xl w-[90%] h-[470px] md:maz-w-md max-w-md border border-green-200">
         <h2 className="text-3xl font-bold text-center text-green-700 mb-6">
           Ro'yxatdan o'tish
         </h2>

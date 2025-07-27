@@ -50,7 +50,7 @@ const MiniBlog = () => {
   }, []);
 
   return (
-    <div className={`mt-5 sticky top-0 z-30 bg-white shadow-sm transition-all duration-300`}>
+    <div className={`mt-5 sticky top-0 z-30 bg-white shadow-sm transition-all duration-300 w-full max-w-6xl m-auto`}>
       <div className="flex items-center px-3 py-2 gap-2">
 
         <div className={`logo-container ${isSticky ? 'visible' : ''}`}>

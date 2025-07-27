@@ -11,7 +11,7 @@ const Carusel = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 2500,
     arrows: false,
   };
 
@@ -24,18 +24,20 @@ const Carusel = () => {
   ];
 
   return (
-    <div className="w-full max-w-[1000px] mx-auto px-2 mt-6">
-      <Slider {...settings}>
-        {images.map((src, index) => (
-          <div key={index} className="px-1">
-            <img
-              src={src}
-              alt={`slide-${index}`}
-              className="w-full h-auto rounded-2xl object-cover"
-            />
-          </div>
-        ))}
-      </Slider>
+    <div className="w-full max-w-6xl mx-auto mt-6 px-4 md:px-0">
+      <div className="rounded-2xl overflow-hidden">
+        <Slider {...settings}>
+          {images.map((src, index) => (
+            <div key={index}>
+              <img
+                src={src}
+                alt={`slide-${index}`}
+                className="w-full h-[200px] sm:h-[300px] md:h-[400px] object-cover"
+              />
+            </div>
+          ))}
+        </Slider>
+      </div>
     </div>
   );
 };

@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 import { useAppContext } from '../Context/AppContext'
 import { SiBitcoinsv } from "react-icons/si";
 import { LuPen, LuShoppingCart, LuUser, LuUserCog } from "react-icons/lu";
-import { MdAccountCircle } from "react-icons/md";
-import { BiMenu, BiPen, BiSolidUserBadge } from 'react-icons/bi';
+import { MdAccountCircle, MdLocationOn } from "react-icons/md";
+import { BiMenu, BiPen, BiPhoneCall, BiSolidCoin, BiSolidUserBadge, BiUser, BiUserCheck, BiUserPlus } from 'react-icons/bi';
 import MobileMenu from './PageComponetns/MobileMenu';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const Header = () => {
-  const { responsive} = useAppContext();
+  const { responsive } = useAppContext();
   const navigate = useNavigate();
   const user = useSelector(state => state.auth.user)
 
@@ -32,7 +32,7 @@ const Header = () => {
                       <p>kirish</p>
                     </div>
                   ) : (
-                    <div className="" onClick={()=> navigate('/loyalty')}>
+                    <div className="" onClick={() => navigate('/loyalty')}>
                       <LuUser className="text-[24px]" />
                     </div>
                   )
@@ -42,7 +42,52 @@ const Header = () => {
             </div>
           </>
         ) : (
-          <h1 className="text-center text-xl font-bold mt-4">Desktop version</h1>
+          <div className="hidden md:flex flex-col items-center justify-between px-6 py-3 bg-white gap-2.5">
+            {/* Top bar */}
+            <div className="flex items-center justify-between w-full max-w-6xl  border-b pb-3 border-gray-400">
+              <div className="flex items-center gap-6">
+                <div className="flex items-center gap-1 text-green-700 font-semibold">
+                  <BiPhoneCall size={20} />
+                  1174
+                </div>
+                <a href="#" className="text-gray-600 hover:text-black">Biz haqimizda</a>
+                <a href="#" className="text-gray-600 hover:text-black">Bo'sh ish o'rinlari</a>
+              </div>
+              <img src="https://bellissimo.uz/images/uzFlag.svg" alt="UZ" className="h-5" />
+            </div>
+
+            {/* Main bar */}
+            <div className="flex items-center justify-between w-full max-w-6xl">
+              <div className="flex items-center gap-6">
+                <img onClick={()=> navigate('/')} src="https://bellissimo.uz/images/logo_new.svg" alt="Logo" className="h-10" />
+                <div className="flex items-center gap-1">
+                  <MdLocationOn className="text-green-600" />
+                  <span className="text-gray-800 font-semibold">Toshkent</span>
+                </div>
+                <div className="bg-gray-100 px-2 py-1 rounded text-sm font-medium">24/7</div>
+                <div className="text-sm text-gray-600">Bepul yetkazish endi 24/7 mavjud</div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-1">
+                  <BiSolidCoin className="text-yellow-500" />
+                  <span className="font-semibold">0</span>
+                </div>
+                {
+                  !user ? (
+                    <button onClick={() => navigate('/login')} className="bg-green-700 text-white px-4 py-2 rounded-full hover:bg-green-800">
+                      Kirish
+                    </button>
+                  ) : (
+                    <div onClick={() => navigate('/profile')} className="flex items-center gap-2 cursor-pointer hover:text-green-700">
+                      <BiUserCheck className="text-[20px]" />
+                      <span className="text-sm">{user.name || "Profil"}</span>
+                    </div>
+                  )
+                }
+              </div>
+            </div>
+          </div>
         )
       }
     </>
