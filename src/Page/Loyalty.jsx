@@ -18,30 +18,12 @@ import { Outlet } from "react-router-dom";
 import HomeBtn from "../Components/PageComponetns/HomeBtn";
 import Home from "./Home";
 import { useAppContext } from "../Context/AppContext";
+import { X } from "lucide-react";
 
 const Loyalty = () => {
 
   const navigate = useNavigate()
   const { responsive } = useAppContext()
-
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const checkDevice = () => {
-      const width = window.innerWidth;
-      if (width >= 768) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    checkDevice();
-    window.addEventListener('resize', checkDevice);
-    return () => window.removeEventListener('resize', checkDevice);
-  }, []);
-
-  if (!isVisible) return null;
 
 
 
@@ -119,29 +101,38 @@ const Loyalty = () => {
             </div>
           ) :
           (
-            <div className="h-screen w-full fixed top-0 p-12  flex items-center justify-center" id="loaud">
-              <div className="flex bg-white rounded-[50px] overflow-hidden shadow-xl max-w-[700px]">
-                {/* Chap panel */}
-                <div className="bg-green-700 text-white p-6 w-[300px] flex flex-col items-center">
-                  <div className="text-xl font-bold">Bellkoinlar <span className="text-xs">Beta</span></div>
-                  <div className="text-yellow-400 text-4xl my-4">🪙 0</div>
-                  <p className="text-center text-sm mb-4">Barchasi Bellissimo ilovasida unumliroq!</p>
-                  <img src="/qr-code.png" alt="QR code" className="w-24 h-24 my-4" />
-                  <p className="text-sm mb-2">Yuklab olish uchun QR kodni skanerlash</p>
-                  <button className="mt-4 bg-yellow-400 text-black font-semibold py-2 px-4 rounded w-full">Buyurtma berish</button>
-                </div>
+            <div className="">
+              <div className="w-full h-screen"></div>
+              <div className="h-screen w-full fixed top-0 p-12  flex items-center justify-center" id="loaud">
 
-                {/* O'ng panel */}
-                <div className="bg-white p-6 w-[300px] flex flex-col items-center justify-center text-center rounded-[50px]">
-                  <div className="flex justify-between w-full mb-4 bg-gray-100 p-1 rounded-full">
-                    <button className="w-1/2 py-1 rounded-full text-sm bg-white shadow">Tarix</button>
-                    <button className="w-1/2 py-1 rounded-full text-sm text-gray-400">Kuyadi</button>
+                <button onClick={() => navigate('/')} className="top-20 right-[20%] absolute bg-white rounded-full p-3">
+                  <X />
+                </button>
+
+
+                <div className="flex bg-green-700 rounded-[50px] overflow-hidden shadow-xl max-w-[700px]">
+                  {/* Chap panel */}
+                  <div className="bg-green-700 text-white p-6 w-[350px] flex flex-col items-center">
+                    <div className="text-xl font-bold">Bellkoinlar <span className="text-xs">Beta</span></div>
+                    <div className="text-yellow-400 text-4xl my-4">🪙 0</div>
+                    <p className="text-center text-sm mb-4">Barchasi Bellissimo ilovasida unumliroq!</p>
+                    <img src="/qr-code.png" alt="QR code" className="w-24 h-24 my-4" />
+                    <p className="text-sm mb-2">Yuklab olish uchun QR kodni skanerlash</p>
+                    <button className="mt-4 bg-yellow-400 text-black font-semibold py-2 px-4 rounded-full w-full transform duration-200 hover:bg-yellow-200 cursor-pointer">Buyurtma berish</button>
                   </div>
-                  <div className="mb-4">
-                    <img src="/coin-placeholder.png" alt="coin" className="w-10 h-10 mx-auto opacity-50" />
+
+                  {/* O'ng panel */}
+                  <div className="bg-white p-6 w-[300px] flex flex-col items-center justify-center text-center rounded-[50px]">
+                    <div className="flex justify-between w-full mb-4 bg-gray-100 p-1 rounded-full">
+                      <button className="w-1/2 py-1 rounded-full text-sm bg-white shadow">Tarix</button>
+                      <button className="w-1/2 py-1 rounded-full text-sm text-gray-400">Kuyadi</button>
+                    </div>
+                    <div className="mb-4">
+                      <img src="/coin-placeholder.png" alt="coin" className="w-10 h-10 mx-auto opacity-50" />
+                    </div>
+                    <div className="text-gray-600 mb-2">Sizda hali Bellkoinlar yo‘q</div>
+                    <div className="text-green-700 font-semibold">Bonus to‘plash</div>
                   </div>
-                  <div className="text-gray-600 mb-2">Sizda hali Bellkoinlar yo‘q</div>
-                  <div className="text-green-700 font-semibold">Bonus to‘plash</div>
                 </div>
               </div>
             </div>

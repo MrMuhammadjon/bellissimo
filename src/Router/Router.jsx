@@ -22,7 +22,7 @@ export default function Router() {
                 { path: '/login', element: <Login /> },
                 { path: '/cart', element: <Cart /> },
                 { path: '/register', element: <Register /> },
-                 { path: 'products/:id', element: <ProductDetalis /> },
+                 { path: 'Product/:code', element: <ProductDetalis /> },
                 {
                     path: 'profile',
                     element: (

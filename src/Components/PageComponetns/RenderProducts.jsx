@@ -73,7 +73,7 @@ const RenderProducts = () => {
                 } else if (product.category === 'pizza') {
                   navigate(`/pizza/${product.code}`);
                 } else {
-                  navigate(`/product/${product.code}`);
+                  navigate(`/Product/${product.code}`);
                 }
               }}
               className="cursor-pointer rounded-xl shadow bg-white hover:shadow-lg transition-all overflow-hidden group"

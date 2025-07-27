@@ -3,10 +3,11 @@ import { useAppContext } from '../Context/AppContext'
 import { SiBitcoinsv } from "react-icons/si";
 import { LuPen, LuShoppingCart, LuUser, LuUserCog } from "react-icons/lu";
 import { MdAccountCircle, MdLocationOn } from "react-icons/md";
-import { BiMenu, BiPen, BiPhoneCall, BiSolidCoin, BiSolidUserBadge, BiUser, BiUserCheck, BiUserPlus } from 'react-icons/bi';
+import { BiCoin, BiMenu, BiPen, BiPhoneCall, BiSolidCoin, BiSolidUserBadge, BiUser, BiUserCheck, BiUserPlus } from 'react-icons/bi';
 import MobileMenu from './PageComponetns/MobileMenu';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { Bitcoin } from 'lucide-react';
 
 const Header = () => {
   const { responsive } = useAppContext();
@@ -69,8 +70,8 @@ const Header = () => {
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="flex items-center gap-1">
-                  <BiSolidCoin className="text-yellow-500" />
+                <div onClick={()=> navigate('/loyalty')} className="flex items-center gap-1">
+                  <SiBitcoinsv className="text-yellow-500 text-3xl" />
                   <span className="font-semibold">0</span>
                 </div>
                 {
