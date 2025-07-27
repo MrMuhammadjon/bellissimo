@@ -1,30 +1,33 @@
 npm install react react-dom
-npm install react-router-dom  # Routing uchun
+npm install react-router-dom  
 
-npm install @reduxjs/toolkit react-redux  # Redux Toolkit + React Redux
-npm install redux-persist  # Redux state saqlash uchun (localStorage)
+npm install @reduxjs/toolkit react-redux  
+npm install redux-persist  
 
-npm install axios  # HTTP so'rovlar uchun
-npm install @tanstack/react-query  # React Query (optional, API state management)
+npm install axios  
+npm install @tanstack/react-query  
 
 npm install tailwindcss postcss autoprefixer
-npx tailwindcss init  # Tailwind konfiguratsiyasini yaratish
+npx tailwindcss init  
 
-npm install react-hook-form  # Form validation
-npm install yup @hookform/resolvers  # Yup validation + HookForm integratsiyasi
+npm install react-hook-form  
+npm install yup @hookform/resolvers 
 
 npm install i18next react-i18next i18next-browser-languagedetector  # i18n
 
-npm install lodash  # Utility funktsiyalar
-npm install date-fns  # Sana vaqt manipulyatsiyasi
-npm install clsx  # Dinamik classlar uchun
+npm install lodash 
+npm install date-fns  
+npm install clsx  
 
-npm install --save-dev @testing-library/react @testing-library/jest-dom  # React testing
+npm install --save-dev @testing-library/react @testing-library/jest-dom  
 
 npm install --save-dev typescript @types/react @types/react-dom
 
-npm install react-hot-toast  # Notificationlar uchun
-npm install framer-motion  # Animatsiyalar uchun
-npm install react-icons  # Iconlar uchun
+npm install react-hot-toast  
+npm install framer-motion  
+npm install react-icons 
 
 npm install react react-dom react-router-dom @reduxjs/toolkit react-redux redux-persist axios @tanstack/react-query tailwindcss postcss autoprefixer react-hook-form yup @hookform/resolvers i18next react-i18next i18next-browser-languagedetector lodash date-fns clsx react-hot-toast framer-motion react-icons
+
+https://686bac8ee559eba908739191.mockapi.io/Products
+https://686bac8ee559eba908739191.mockapi.io/users

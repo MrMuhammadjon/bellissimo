@@ -5,6 +5,7 @@ import { loginUser } from '../Feauters/auth/authSlice';
 import HomeBtn from '../Components/PageComponetns/HomeBtn';
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import toast from 'react-hot-toast';
 import Home from './Home';
 
 const Login = () => {
@@ -18,12 +19,13 @@ const Login = () => {
     e.preventDefault();
     try {
       await dispatch(loginUser({ phone, password })).unwrap();
+      toast.success("Bellisimoga Xush kelibsiz! ✅");
       navigate('/');
     } catch (err) {
       console.error('Loginda xatolik:', err);
+      toast.error("❌ Login amalga oshmadi. Iltimos, ma'lumotlarni tekshiring.");
     }
   };
-
   return (
     <div className="min-h-screen flex items-center justify-center">
       <HomeBtn />
