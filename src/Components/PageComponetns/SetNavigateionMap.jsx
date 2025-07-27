@@ -3,6 +3,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 
 const SetNavigationMap = ({ showMap, setShowMap, showRestaurants, setShowRestaurants }) => {
+
+    const locationResta = [
+        { name: "Bellissimo Pizza Gelyion", loction: 'Ulitsa Tashkentskaya 1, Бухара, Samarqand Region, Узбекистан' },
+        { name: "Bellissimo Pizza Saidbaraka", loction: 'улица Мир Саид Барака 2, 140100, Samarqand, Samarqand viloyati, Узбекистан' },
+        { name: "Bellissimo Pizza FamilyPark", loction: 'Narpayskaya Ulitsa 76, Samarkand, Samarqand Region, Узбекистан' },
+        { name: "Bellissimo Pizza Samarqand Qorasuv", loction: 'массив Карасу, Узбекистан' },
+        { name: "Bellissimo Pizza Marhabo", loction: 'Буюк Ипак Йули кучаси 69A, Samarqand, Samarqand viloyati, Узбекистан' },
+        { name: "Bellissimo Pizza Orzu Mahmudova", loction: 'Bellissimo Pizza Orzu Mahmudova' },
+        { name: "Bellissimo Pizza Registan", loction: 'Регистан, ул. Регистан, напротив площадь, Samarkand, Узбекистан' },
+        { name: "Bellissimo Pizza Saidbaraka", loction: 'улица Мир Саид Барака 2, 140100, Samarqand, Samarqand viloyati, Узбекистан' },
+
+
+    ]
     return (
         <AnimatePresence>
             {/* Google Map Modal */}
@@ -62,11 +75,24 @@ const SetNavigationMap = ({ showMap, setShowMap, showRestaurants, setShowRestaur
                         </button>
                         <h2 className="text-xl font-semibold text-gray-700 mb-4">Filiallar</h2>
                         <ul className="space-y-3">
-                            {["Chilonzor", "Yunusobod", "Sergeli", "Olmazor", "Mirzo Ulug'bek"].map((item, idx) => (
-                                <li key={idx} className="p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition cursor-pointer">
-                                    {item} filiali
-                                </li>
-                            ))}
+                            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                                {locationResta.map((item, idx) => (
+                                    <li
+                                        key={idx}
+                                        onClick={() => handleSelectLocation(item.loction)} // optional click handler
+                                        className="cursor-pointer bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 p-4 flex flex-col gap-2"
+                                    >
+                                        <div className="flex items-center gap-2 text-primary font-semibold text-lg">
+                                            <svg className="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 12.414a4 4 0 00-5.657 0l-4.243 4.243M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            </svg>
+                                            <span>{item.name}</span>
+                                        </div>
+                                        <p className="text-gray-600 text-sm leading-snug pl-7">{item.loction}</p>
+                                    </li>
+                                ))}
+                            </ul>
+
                         </ul>
                     </motion.div>
                 </motion.div>
