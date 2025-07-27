@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { loginUser } from '../Feauters/auth/authSlice';
 import HomeBtn from '../Components/PageComponetns/HomeBtn';
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 import Home from './Home';
 
 const Login = () => {
@@ -24,19 +26,17 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <HomeBtn/>
+      <HomeBtn />
       <div className="bg-white p-10 rounded-2xl shadow-2xl w-full max-w-md border border-green-200">
         <h1 className="text-4xl font-extrabold text-center text-green-700 mb-6">Kirish</h1>
 
         <form onSubmit={handleLogin} className="flex flex-col gap-5">
-          <input
-            type="tel"
-            placeholder="📱 Telefon raqamingiz"
+          <PhoneInput
+            country={"uz"}
             value={phone}
-            minLength={9}
-            required
-            className="border border-green-300 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400 transition-all"
-            onChange={(e) => setPhone(e.target.value)}
+            onChange={setPhone}
+            inputClass="!w-full border border-green-300 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400 transition-all"
+            containerClass="!w-full"
           />
           <input
             type="password"

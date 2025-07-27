@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../Feauters/auth/authSlice";
 import { useNavigate } from "react-router-dom";
 import HomeBtn from "../Components/PageComponetns/HomeBtn";
-import InputMask from "react-input-mask";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -15,15 +16,18 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // VALIDATSIYA
     if (form.name.trim().length < 3) {
       alert("Ismingiz kamida 3 ta belgidan iborat bo'lishi kerak.");
       return;
     }
 
-    const cleanedPhone = form.phone.replace(/\D/g, "");
-    if (cleanedPhone.length !== 12) {
-      alert("Telefon raqam to‘liq va to‘g‘ri formatda bo‘lishi kerak.");
+    const numericPhone = form.phone.replace(/\D/g, "");
+    if (!form.phone.startsWith("998") && !form.phone.startsWith("+998")) {
+      alert("Telefon raqam +998 bilan boshlanishi kerak.");
+      return;
+    }
+    if (numericPhone.length < 9 || numericPhone.length > 15) {
+      alert("Telefon raqam 9–15 ta raqamdan iborat bo'lishi kerak.");
       return;
     }
 
@@ -41,52 +45,48 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 to-green-100">
       <HomeBtn />
       <div className="bg-white p-10 rounded-2xl shadow-2xl w-full max-w-md border border-green-200">
-        <h2 className="text-3xl font-bold text-center text-green-700 mb-6">Ro'yxatdan o'tish</h2>
+        <h2 className="text-3xl font-bold text-center text-green-700 mb-6">
+          Ro'yxatdan o'tish
+        </h2>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
           <input
             type="text"
             name="name"
             required
-            placeholder="👤 Ismingiz"
+            placeholder="Ismingiz"
             value={form.name}
             className="border border-green-300 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400 transition-all"
             onChange={(e) => setForm({ ...form, name: e.target.value })}
+            minLength={3}
           />
-          <InputMask
-            mask="+998 (99) 999 99 99"
-            maskChar={null}
+
+          <PhoneInput
+            country={"uz"}
             value={form.phone}
-            onChange={(e) => setForm({ ...form, phone: e.target.value })}
-          >
-            {(inputProps) => (
-              <input
-                {...inputProps}
-                type="tel"
-                name="phone"
-                required
-                placeholder="📱 Telefon raqam"
-                className="border border-green-300 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400 transition-all"
-              />
-            )}
-          </InputMask>
+            onChange={(phone) => setForm({ ...form, phone })}
+            inputClass="!w-full border border-green-300 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400 transition-all"
+            containerClass="!w-full"
+          />
+
           <input
             type="password"
             name="password"
             required
-            placeholder="🔒 Maxfiy kalit"
+            placeholder="Maxfiy kalit (kamida 4 belgi)"
             value={form.password}
             className="border border-green-300 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400 transition-all"
             onChange={(e) => setForm({ ...form, password: e.target.value })}
+            minLength={4}
           />
 
           <button
             type="submit"
             disabled={loading}
-            className="bg-green-600 text-white py-3 rounded-xl font-semibold hover:bg-green-700 transition-all disabled:opacity-60"
+            className="bg-green-600 text-white py-3 rounded-xl font-semibold hover:bg-green-700 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
           >
             {loading ? "⏳ Ro'yxatdan o'tilmoqda..." : "Ro'yxatdan o'tish"}
           </button>
@@ -99,7 +99,9 @@ const Register = () => {
             Kirish sahifasiga
           </button>
 
-          {error && <p className="text-red-500 text-center mt-2">❌ {error}</p>}
+          {error && (
+            <p className="text-red-500 text-center mt-2">❌ {error}</p>
+          )}
         </form>
       </div>
     </div>
