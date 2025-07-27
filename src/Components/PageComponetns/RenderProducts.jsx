@@ -57,17 +57,25 @@ const RenderProducts = () => {
   const salad = items.filter(p => p.type?.toLowerCase() === 'salad');
   const sauce = items.filter(p => p.type?.toLowerCase() === 'sauce');
 
-  
+
   const renderCategory = (title, data) => (
     <div className="mb-8">
-      <h2 className="text-xl font-bold mb-4">{title}</h2>
+      <h2 className="text-xl font-bold mb-15" id={title.toLowerCase()}>{title}</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {data.map((product, index) => {
           return (
             <div
               key={index}
               data-aos="fade-up"
-              onClick={() => navigate(`/products/${product.code}`)}
+              onClick={() => {
+                if (product.category === 'combo') {
+                  navigate(`/combo/${product.code}`);
+                } else if (product.category === 'pizza') {
+                  navigate(`/pizza/${product.code}`);
+                } else {
+                  navigate(`/product/${product.code}`);
+                }
+              }}
               className="cursor-pointer rounded-xl shadow bg-white hover:shadow-lg transition-all overflow-hidden group"
             >
               <img
@@ -89,15 +97,13 @@ const RenderProducts = () => {
 
   return (
     <div className="p-4 md:p-6 w-full md:max-w-6xl m-auto">
-      {renderCategory("🥙 Combo", combo)}
-      {renderCategory("🍕 Pizza", pizza)}
-      {renderCategory("🥤 Snek", snek)}
-      {renderCategory("🥤 Drinks", drinks)}
-      {renderCategory("🥤 desser", dessert)}
-      {renderCategory("🥤 desser", salad)}
-      {renderCategory("🥤 desser", sauce)}
-
-
+      {renderCategory("Combo", combo)}
+      {renderCategory("Pizza", pizza)}
+      {renderCategory("Snek", snek)}
+      {renderCategory("Drinks", drinks)}
+      {renderCategory("Desser", dessert)}
+      {renderCategory("Salad", salad)}
+      {renderCategory("Sauce", sauce)}
     </div>
   );
 };
