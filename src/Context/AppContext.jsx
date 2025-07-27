@@ -6,6 +6,15 @@ export const AppContextProvider = ({ children }) => {
     const [user, setUser] = useState(false)
     const [responsive, setResponsive] = useState(window.innerWidth <= 768);
     const [active, setActive] = useState("all");
+    const [addToCart, setAddToCart] =useState(()=>{
+        const saveCart = localStorage.getItem('cart')
+        try{
+            const parsed = JSON.parse(saveCart);
+             return Array.isArray(parsed) ? parsed : [];
+        } catch (e){
+            return []
+        }
+    })
 
     useEffect(() => {
         const handleResize = () => {
@@ -25,7 +34,9 @@ export const AppContextProvider = ({ children }) => {
         responsive,
         setResponsive,
         active,
-        setActive
+        setActive,
+        addToCart,
+        setAddToCart
     }
 
     return (

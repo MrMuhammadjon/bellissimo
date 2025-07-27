@@ -80,7 +80,7 @@ const Header = () => {
                     </button>
                   ) : (
                     <div onClick={() => navigate('/profile')} className="flex items-center gap-2 cursor-pointer hover:text-green-700">
-                      <BiUserCheck className="text-[20px]" />
+                      <BiUser className="text-3xl rounded-full p-1 bg-gray-200" />
                       <span className="text-sm">{user.name || "Profil"}</span>
                     </div>
                   )

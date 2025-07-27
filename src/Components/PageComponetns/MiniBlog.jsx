@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useAppContext } from '../../Context/AppContext';
 import { SiBitcoinsv } from "react-icons/si";
 import { BiArrowToTop } from 'react-icons/bi';
-import { data } from 'react-router-dom';
+import { data, useNavigate } from 'react-router-dom';
 
 const MiniBlog = () => {
   const { active, setActive } = useAppContext();
   const [categories, setCategories] = useState([]);
   const [isSticky, setIsSticky] = useState(false);
   const [show, setShow] = useState(false);
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,29 +26,26 @@ const MiniBlog = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
- useEffect(() => {
-    fetch('https://dummyjson.com/recipes')
-      .then(res => res.json())
-      .then(data => {
-        const items = data.recipes;
+useEffect(() => {
+  fetch('https://686bac8ee559eba908739191.mockapi.io/Products')
+    .then(res => res.json())
+    .then(data => {
+      const uniqueCategories = [
+        'all',
+        ...new Set(
+          data.map(item => item.category).filter(Boolean)
+        ),
+      ];
 
-        const uniqueTags = [
-          'all',
-          ...new Set(
-            items
-              .map(item => item.tags?.[0])
-              .filter(Boolean)
-          ),
-        ];
+      const formatted = uniqueCategories.map(cat => ({
+        slug: cat,
+        name: cat.charAt(0).toUpperCase() + cat.slice(1),
+      }));
 
-        const formatted = uniqueTags.map(tag => ({
-          slug: tag,
-          name: tag.charAt(0).toUpperCase() + tag.slice(1), 
-        }));
+      setCategories(formatted);
+    });
+}, []);
 
-        setCategories(formatted);
-      });
-  }, []);
 
   return (
     <div className={`mt-5 sticky top-0 z-30 bg-white shadow-sm transition-all duration-300 w-full max-w-6xl m-auto`}>
@@ -75,6 +73,12 @@ const MiniBlog = () => {
               {cat.name}
             </button>
           ))}
+        </div>
+
+        <div className="">
+          <button onClick={()=> navigate('/cart')} className='flex p-2 px-4 bg-red-500 text-white rounded-full gap-3'>
+            savatchada <span className='border-l pl-2 border-white'>0</span>
+          </button>
         </div>
       </div>
 
