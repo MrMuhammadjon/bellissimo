@@ -64,7 +64,7 @@ const MobileMenu = ({ isOpen, onClose }) => {
 
 
 
-          <button className="cursor-pointer flex items-center gap-2 p-4 rounded-[20px] bg-gray-100 transform duration-300 hover:py-5">
+          <button onClick={()=> navigate('/')} className="cursor-pointer flex items-center gap-2 p-4 rounded-[20px] bg-gray-100 transform duration-300 hover:py-5">
             <CiPizza  className='text-2xl text-gray-500' /> Menu
           </button>
 
