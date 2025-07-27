@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logout } from "../Feauters/auth/authSlice";
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import HomeBtn from '../Components/PageComponetns/HomeBtn';
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const Profile = () => {
 
   return (
     <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+        <HomeBtn/>
       <h1 className="text-2xl font-bold mb-6 text-gray-800">Profil</h1>
       
       {user && (

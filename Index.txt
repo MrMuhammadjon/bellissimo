@@ -1,3 +1,5 @@
+// Site uchun asosoiy foydalnagna npm va sitlear
+
 npm install react react-dom
 npm install react-router-dom  
 
@@ -31,3 +33,23 @@ npm install react react-dom react-router-dom @reduxjs/toolkit react-redux redux-
 
 https://686bac8ee559eba908739191.mockapi.io/Products
 https://686bac8ee559eba908739191.mockapi.io/users
+
+npm install leaflet react-leaflet @react-google-maps/api
+
+https://motion.dev/docs/react-animation
+
+https://react-slick.neostack.com/
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/tel
+
+https://v2.boxicons.com/
+
+https://mui.com/
+
+https://chatgpt.com/
+https://chat.deepseek.com/
+
+
+
+//////      BATAFSIL MA'LUMOT  Sayt Asosiy ResurslarI.PDF <-----DA       \\\\\\
+
