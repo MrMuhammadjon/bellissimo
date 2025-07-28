@@ -9,7 +9,7 @@ const ComboDetalis = () => {
   const { code } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 1024);
+  const [isDesktop, setIsDesktop] = useAppContext()
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -125,7 +125,7 @@ const ComboDetalis = () => {
             <span>Umumiy narx:</span>
             <div>
               <span className="line-through text-gray-400 mr-2">
-                {product.price ? `${product.price.toLocaleString()} so'm` : 'N/A'}
+                {product.price} so'm
               </span>
               <span className="text-green-700">{product.discount}so'm</span>
             </div>

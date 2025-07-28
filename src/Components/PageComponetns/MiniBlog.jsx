@@ -90,7 +90,7 @@ const MiniBlog = () => {
         </div>
 
         <div className="">
-          <button onClick={() => navigate('/cart')} className='flex p-2 px-4 bg-red-500 text-white rounded-full gap-3 hidden md:flex'>
+          <button onClick={() => navigate('/cart')} className='p-2 px-4 bg-red-500 text-white rounded-full gap-3 hidden md:flex'>
             savatchada <span className='border-l pl-2 border-white'>0</span>
           </button>
         </div>

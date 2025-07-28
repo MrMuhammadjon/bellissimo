@@ -18,9 +18,9 @@ const HeadComponent = () => {
 
     const handleAddressClick = () => {
         if (isDelivery) {
-            setShowMap(true); // Google Map ochiladi
+            setShowMap(true);
         } else {
-            setShowRestaurants(true); // Restoranlar ochiladi
+            setShowRestaurants(true); 
         }
     };
 
