@@ -14,7 +14,7 @@ const RenderProducts = () => {
   const { responsive, setResponsive } = useAppContext()
 
   const location = useLocation();
-  console.log(state);
+  
 
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const RenderProducts = () => {
 
   if (status === 'loading') {
     return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4 md:p-6">
+      <div className="w-[90%] m-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4 md:p-6">
         {[...Array(8)].map((_, index) => (
           <ProductSkeleton key={index} />
         ))}
@@ -163,14 +163,14 @@ const RenderProducts = () => {
     return (
       <div className="mb-8">
         <h2 className="text-xl font-bold mb-4" id={title.toLowerCase()}>{title}</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
           {data.map((product, index) => {
             return (
               <div
                 key={index}
                 data-aos="fade-up"
                 onClick={() => navigate(`/Product/${product.code}`, { state: { backgroundLocation: location } })}
-                className="cursor-pointer rounded-xl shadow bg-white hover:shadow-lg transition-all overflow-hidden group"
+                className="cursor-pointer rounded-xl shadow-md bg-white hover:shadow-lg transition-all overflow-hidden group"
               >
                 <div className="w-full h-48 relative flex items-center justify-center overflow-hidden">
                   <img

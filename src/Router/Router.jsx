@@ -4,6 +4,7 @@ import App from '../App';
 import ErrorPage from '../Page/ErorrPage';
 import ProtectRouter from '../Components/ProtectRouter';
 import ComboDetalis from "../Page/ComboDetalis";
+import PizzaDetalis from "../Page/PizzaDetalis";
 const Home = lazy(() => import('../Page/Home'));
 const Login = lazy(() => import('../Page/Login'));
 const Register = lazy(() => import('../Page/Register'));
@@ -30,7 +31,7 @@ export default function Router() {
                 { path: 'cart', element: <Cart /> },
                 { path: 'register', element: <Register /> },
                 { path: 'combo/:code', element: <ComboDetalis /> },
-                { path: 'pizza/:code', element: <ProductDetalis /> },
+                { path: 'pizza/:code', element: <PizzaDetalis /> },
 
 
                 {
