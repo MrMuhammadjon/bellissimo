@@ -30,16 +30,13 @@ const MiniBlog = () => {
     fetch('https://686bac8ee559eba908739191.mockapi.io/Products')
       .then(res => res.json())
       .then(data => {
-        // category va type ni olib, birlashtiramiz
         const allTags = [
           ...data.map(item => item.category),
           ...data.map(item => item.type)
-        ].filter(Boolean); // undefined yoki null bo‘lganlarini chiqarib tashlaydi
+        ].filter(Boolean); 
 
-        // Noyob qilib olish
         const uniqueTags = ['all', ...new Set(allTags)];
 
-        // Formatlab chiqaramiz
         const formatted = uniqueTags.map(tag => ({
           slug: tag.toLowerCase(),
           name: tag.charAt(0).toUpperCase() + tag.slice(1),

@@ -18,7 +18,6 @@ const SetNavigationMap = ({ showMap, setShowMap, showRestaurants, setShowRestaur
     ]
     return (
         <AnimatePresence>
-            {/* Google Map Modal */}
             {showMap && (
                 <motion.div
                     initial={{ opacity: 0 }}
@@ -52,7 +51,6 @@ const SetNavigationMap = ({ showMap, setShowMap, showRestaurants, setShowRestaur
                 </motion.div>
             )}
 
-            {/* Restaurant Modal */}
             {showRestaurants && (
                 <motion.div
                     initial={{ opacity: 0 }}

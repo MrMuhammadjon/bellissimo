@@ -39,6 +39,12 @@ const PizzaDetalis = () => {
         <p className="text-xl text-gray-600 font-medium">
           Ushbu sahifa faqat kompyuter (desktop) ekranlarida ko‘rsatiladi.
         </p>
+                        <button
+          onClick={() => navigate(-1)}
+          className="absolute top-[20%] left-0 mt-2 ml-2 rounded-full shadow-sm w-10 h-10 text-2xl font-bold hover:text-gray-600 transition flex items-center justify-center bg-white border border-gray-200 hover:bg-gray-100"
+        >
+          <LuMoveLeft />
+        </button>
       </div>
     );
   }

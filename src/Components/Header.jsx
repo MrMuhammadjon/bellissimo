@@ -44,7 +44,6 @@ const Header = () => {
           </>
         ) : (
           <div className="hidden md:flex flex-col items-center justify-between px-6 py-3 bg-white gap-2.5">
-            {/* Top bar */}
             <div className="flex items-center justify-between w-full max-w-6xl  border-b pb-3 border-gray-400">
               <div className="flex items-center gap-6">
                 <div className="flex items-center gap-1 text-green-700 font-semibold">
@@ -57,7 +56,6 @@ const Header = () => {
               <img src="https://bellissimo.uz/images/uzFlag.svg" alt="UZ" className="h-5" />
             </div>
 
-            {/* Main bar */}
             <div className="flex items-center justify-between w-full max-w-6xl">
               <div className="flex items-center gap-6">
                 <img onClick={()=> navigate('/')} src="https://bellissimo.uz/images/logo_new.svg" alt="Logo" className="h-10" />

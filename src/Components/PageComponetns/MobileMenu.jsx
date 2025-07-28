@@ -20,12 +20,10 @@ const MobileMenu = ({ isOpen, onClose }) => {
       <div
         className={`fixed top-0 left-0 w-[80%] sm:w-[60%] h-full bg-white z-50 shadow-lg transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}
       >
-        {/* Close Button */}
         <button onClick={onClose} className="absolute top-4 -right-15 text-2xl bg-white rounded-full p-3">
           <IoMdClose />
         </button>
 
-        {/* City Selector */}
         <div className="p-4">
           <select className="w-full p-3 bg-gray-100 rounded-[20px] transform duration-300 hover:py-5">
             <option>Samarqand</option>
@@ -33,7 +31,6 @@ const MobileMenu = ({ isOpen, onClose }) => {
           </select>
         </div>
 
-        {/* Menu Items */}
         <div className="p-4 flex flex-col gap-3">
           {!user ? (
             <button
@@ -74,7 +71,6 @@ const MobileMenu = ({ isOpen, onClose }) => {
             </a>
           </button>
 
-          {/* Language Switch */}
           <div className="mt-6">
             <p className="text-sm font-medium mb-2">Til</p>
             <div className="flex items-center justify-center p-1 gap-2 bg-gray-100 rounded-full w-[250px] mt-4">

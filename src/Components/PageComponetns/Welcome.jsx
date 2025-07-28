@@ -35,7 +35,6 @@ const Welcome = () => {
             className={`w-full h-[70%] bg-[#006f4c] rounded-t-[40px] flex flex-col items-center justify-end text-white shadow-2xl relative overflow-hidden 
         ${closing ? 'animate-slide-down' : 'animate-slide-up'}`}
           >
-            {/* Title + Pizza Image */}
             <div className="w-full h-[50%] text-3xl font-bold text-yellow-300 text-center relative mb-10">
               <TypeAnimation
                 sequence={[
