@@ -12,36 +12,42 @@ const Profile = lazy(() => import('../Page/Profile'));
 const ProductDetalis = lazy(() => import('../Page/ProductDetalis'));
 export default function Router() {
 
-    const router = createBrowserRouter([
-        {
-            path: '/',
-            element: <App />,
-            errorElement: <ErrorPage />,
-            children: [
-                { index: true, element: <Home /> },
-                { path: '/login', element: <Login /> },
-                { path: '/cart', element: <Cart /> },
-                { path: '/register', element: <Register /> },
-                 { path: 'Product/:code', element: <ProductDetalis /> },
-                {
-                    path: 'profile',
-                    element: (
-                        <ProtectRouter>
-                            <Profile />
-                        </ProtectRouter>
-                    )
-                },
-                {
-                    path: 'loyalty',
-                    element: (
-                        <ProtectRouter>
-                            <Loyalty />
-                        </ProtectRouter>
-                    )
-                }
-            ]
-        }
-    ]);
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: '',
+        element: <Home />,
+        children: [
+          { path: 'product/:code', element: <ProductDetalis /> },
+        ]
+      },
+      { path: 'login', element: <Login /> },
+      { path: 'cart', element: <Cart /> },
+      { path: 'register', element: <Register /> },
+      {
+        path: 'profile',
+        element: (
+          <ProtectRouter>
+            <Profile />
+          </ProtectRouter>
+        )
+      },
+      {
+        path: 'loyalty',
+        element: (
+          <ProtectRouter>
+            <Loyalty />
+          </ProtectRouter>
+        )
+      }
+    ]
+  }
+]);
+
 
     return <RouterProvider router={router} />;
 }

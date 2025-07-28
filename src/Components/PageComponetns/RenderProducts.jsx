@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { fetchProducts } from '../../Feauters/products/ProductsAuth';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -10,6 +10,7 @@ const RenderProducts = () => {
   const navigate = useNavigate();
   const { items, status } = useSelector((state) => state.products);
   const state = useSelector((state) => state);
+  const location = useLocation();
   console.log(state);
 
 
@@ -68,13 +69,16 @@ const RenderProducts = () => {
               key={index}
               data-aos="fade-up"
               onClick={() => {
-                if (product.category === 'combo') {
-                  navigate(`/combo/${product.code}`);
-                } else if (product.category === 'pizza') {
-                  navigate(`/pizza/${product.code}`);
-                } else {
-                  navigate(`/Product/${product.code}`);
-                }
+                const path =
+                  product.category === 'combo'
+                    ? `/combo/${product.code}`
+                    : product.category === 'pizza'
+                      ? `/pizza/${product.code}`
+                      : `/Product/${product.code}`;
+
+                navigate(path, {
+                  state: { backgroundLocation: location }
+                });
               }}
               className="cursor-pointer rounded-xl shadow bg-white hover:shadow-lg transition-all overflow-hidden group"
             >
