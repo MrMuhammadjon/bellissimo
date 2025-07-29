@@ -29,7 +29,7 @@ const ProductDetalis = () => {
   }, [code]);
 
   if (loading) {
-    return <div className="text-center py-10 text-gray-500">Yuklanmoqda...</div>;
+    return <div className="fixed inset-0 z-50 bg-opacity-50 backdrop-blur-sm flex items-center justify-center p-10">Yuklanmoqda...</div>;
   }
 
   if (!product) {
@@ -73,7 +73,7 @@ const ProductDetalis = () => {
                   Kategoriya: <span className="capitalize">{product.category}</span>
                 </p>
                 <p className="text-gray-600 text-sm mb-1">
-                  Hajmi: <span className="font-medium">{product.crusts}</span>
+                  Hajmi: <span className="font-medium">{product.sizes}</span>
                 </p>
                 <div className="mt-4">
                   <p className="text-xl font-semibold text-green-600">
