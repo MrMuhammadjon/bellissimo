@@ -39,7 +39,7 @@ const PizzaDetalis = () => {
   return (
     <div
       id="productDetalis"
-      className="fixed inset-0 z-50 bg-black bg-opacity-30 backdrop-blur-sm flex flex-col items-center justify-center p-4 sm:p-10"
+      className="fixed inset-0 z-50 bg-black bg-opacity-30 backdrop-blur-sm flex flex-col items-center justify-center sm:p-10"
     >
       {
         !responsive ?
@@ -158,7 +158,7 @@ const PizzaDetalis = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 100 }}
             transition={{ duration: 0.3 }}
-            className="relative bg-white rounded-2xl shadow-2xl w-full max-w-5xl gap-8 p-6 sm:p-10"
+            className="relative bg-white shadow-2xl w-full max-w-5xl h-screen gap-8 p-6 flex flex-col items-center justify-end sm:p-10"
           >
             <button
               onClick={() => navigate(-1)}
@@ -180,9 +180,7 @@ const PizzaDetalis = () => {
               <p className="mt-4 text-lg text-gray-700">
                 <strong>Massaliq:</strong> {product.massaliq || 'N/A'}
               </p>
-              <p className="mt-2 text-2xl font-bold text-green-600">
-                {product.price.toLocaleString()} so'm
-              </p>
+
             </motion.div>
 
             <motion.div
@@ -194,7 +192,7 @@ const PizzaDetalis = () => {
               <div>
                 <h1 className="text-2xl md:text-3xl font-semibold mb-4">{product.name}</h1>
 
-                <div className="mb-3 text-gray-700 text-sm flex items-center justify-start gap-2">
+                <div className="mb-2 text-gray-700 text-sm flex items-center justify-start gap-2">
                   <p className="mb-1 font-medium">Hajmi:</p>
                   <div className="flex gap-2 flex-wrap">
                     {product.sizes.map((item, id) => (
@@ -207,9 +205,19 @@ const PizzaDetalis = () => {
                     ))}
                   </div>
                 </div>
+                <motion.div
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.4 }}
+                  className=""
+                >
+                  <h2 className="text-lg font-semibold mb-2">Tavsif</h2>
+                  <p className="text-sm text-gray-700">{product.description}</p>
+                </motion.div>
 
-                <p className="text-sm text-gray-600 mb-3">
-                  <strong>Kategoriya:</strong> <span className="capitalize">{product.category}</span>
+
+                <p className="text-sm text-black mb-4">
+                  <strong>Kategoriya:</strong> <span className="capitalize text-gray-600">{product.category}</span>
                 </p>
 
                 <div className="max-h-50 overflow-y-auto scrollbar-hide mt-4">
@@ -239,8 +247,11 @@ const PizzaDetalis = () => {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="mt-6 flex flex-col sm:flex-row gap-4"
+                className="mt-6 flex items-end justify-between gap-4"
               >
+                <p className="mt-2 text-2xl font-bold text-green-600">
+                  {product.price.toLocaleString()} so'm
+                </p>
                 <button
                   onClick={() => toggleCart(product)}
                   className="flex-1 py-3 rounded-full bg-[#006f4c] hover:bg-[#5aab91] text-white font-semibold transition"
@@ -251,15 +262,6 @@ const PizzaDetalis = () => {
                 </button>
               </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4 }}
-                className="mt-6"
-              >
-                <h2 className="text-lg font-semibold mb-2">Tavsif</h2>
-                <p className="text-sm text-gray-700">{product.description}</p>
-              </motion.div>
             </motion.div>
           </motion.div>)
       }
