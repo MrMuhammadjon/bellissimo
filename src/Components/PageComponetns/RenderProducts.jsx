@@ -147,7 +147,7 @@ const RenderProducts = () => {
                   <div className="p-4 space-y-1">
                     <h3 className="text-base font-semibold text-gray-800">{product.name}</h3>
                     <p className="text-sm text-gray-500 line-clamp-2">{product.description}</p>
-                    <p className="text-green-600 text-lg font-bold">{product.price} so'</p>
+                    <p className="text-green-600 text-lg font-bold">{product.price} so'm</p>
                   </div>
                 </div>
               )

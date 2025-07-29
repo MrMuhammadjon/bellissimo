@@ -25,13 +25,13 @@ export default function Router() {
                     element: <Home />,
                     children: [
                         { path: 'product/:code', element: <ProductDetalis /> },
+                        { path: 'pizza/:code', element: <PizzaDetalis /> },
                     ]
                 },
                 { path: 'login', element: <Login /> },
                 { path: 'cart', element: <Cart /> },
                 { path: 'register', element: <Register /> },
                 { path: 'combo/:code', element: <ComboDetalis /> },
-                { path: 'pizza/:code', element: <PizzaDetalis /> },
 
 
                 {

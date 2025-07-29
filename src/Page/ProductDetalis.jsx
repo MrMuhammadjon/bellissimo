@@ -101,68 +101,68 @@ const ProductDetalis = () => {
           </motion.div>
         </div>) :
           (<div className="fixed inset-0 z-50 bg-opacity-50 backdrop-blur-sm flex items-center justify-center p-4 md:hidden"> {/* Changed to md:hidden */}
-  <motion.div
-    initial={{ opacity: 0, y: 100 }}
-    animate={{ opacity: 1, y: 0 }}
-    exit={{ opacity: 0, y: 100 }}
-    transition={{ duration: 0.3 }}
-    className="relative bg-white rounded-2xl shadow-xl w-full max-w-md grid grid-cols-1 gap-6 p-6 overflow-y-auto max-h-[90vh]"
-  >
-    <button
-      onClick={() => navigate(-1)}
-      className="absolute top-4 left-4 rounded-full shadow-sm w-10 h-10 text-2xl font-bold hover:text-gray-600 transition flex items-center justify-center bg-white border border-gray-200 hover:bg-gray-100"
-    >
-      <LuMoveLeft />
-    </button>
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 100 }}
+              transition={{ duration: 0.3 }}
+              className="relative bg-white rounded-2xl shadow-xl w-full max-w-md grid grid-cols-1 gap-6 p-6 overflow-y-auto max-h-[90vh]"
+            >
+              <button
+                onClick={() => navigate(-1)}
+                className="absolute top-4 left-4 rounded-full shadow-sm w-10 h-10 text-2xl font-bold hover:text-gray-600 transition flex items-center justify-center bg-white border border-gray-200 hover:bg-gray-100"
+              >
+                <LuMoveLeft />
+              </button>
 
-    <div>
-      <img
-        src={product.img}
-        alt={product.name}
-        className="rounded-xl w-full h-[250px] object-cover"
-      />
-    </div>
+              <div>
+                <img
+                  src={product.img}
+                  alt={product.name}
+                  className="rounded-xl w-full h-[250px] object-cover"
+                />
+              </div>
 
-    <div className="flex flex-col justify-between gap-4">
-      <div>
-        <h1 className="text-2xl font-semibold mb-2">{product.name}</h1>
-        {product.category && (
-          <p className="text-gray-600 text-sm mb-1">
-            Kategoriya: <span className="capitalize">{product.category}</span>
-          </p>
-        )}
-        {product.crusts && (
-          <p className="text-gray-600 text-sm mb-1">
-            Hajmi: <span className="font-medium">{product.crusts}</span>
-          </p>
-        )}
-        <div className="mt-3">
-          <p className="text-xl font-semibold text-green-600">
-            {product.price.toLocaleString()} so'm
-          </p>
-        </div>
-      </div>
+              <div className="flex flex-col justify-between gap-4">
+                <div>
+                  <h1 className="text-2xl font-semibold mb-2">{product.name}</h1>
+                  {product.category && (
+                    <p className="text-gray-600 text-sm mb-1">
+                      Kategoriya: <span className="capitalize">{product.category}</span>
+                    </p>
+                  )}
+                  {product.crusts && (
+                    <p className="text-gray-600 text-sm mb-1">
+                      Hajmi: <span className="font-medium">{product.crusts}</span>
+                    </p>
+                  )}
+                  <div className="mt-3">
+                    <p className="text-xl font-semibold text-green-600">
+                      {product.price.toLocaleString()} so'm
+                    </p>
+                  </div>
+                </div>
 
-      <div className="mt-4">
-        <button
-          onClick={() => toggleCart(product)}
-          className="w-full py-3 rounded-full bg-[#006f4c] hover:bg-[#5aab91] text-white font-medium transition"
-        >
-          {AddToCart?.some(item => item.id === product.id)
-            ? 'Remove from Cart'
-            : 'Add to Cart'}
-        </button>
-      </div>
+                <div className="mt-4">
+                  <button
+                    onClick={() => toggleCart(product)}
+                    className="w-full py-3 rounded-full bg-[#006f4c] hover:bg-[#5aab91] text-white font-medium transition"
+                  >
+                    {AddToCart?.some(item => item.id === product.id)
+                      ? 'Remove from Cart'
+                      : 'Add to Cart'}
+                  </button>
+                </div>
 
-      {product.description && (
-        <div className="mt-4">
-          <h2 className="text-lg font-semibold mb-2">Tavsif</h2>
-          <p className="text-gray-700 text-sm">{product.description}</p>
-        </div>
-      )}
-    </div>
-  </motion.div>
-</div>)
+                {product.description && (
+                  <div className="mt-4">
+                    <h2 className="text-lg font-semibold mb-2">Tavsif</h2>
+                    <p className="text-gray-700 text-sm">{product.description}</p>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          </div>)
       }
     </div>
   );
