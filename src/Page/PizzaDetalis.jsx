@@ -162,7 +162,7 @@ const PizzaDetalis = () => {
           >
             <button
               onClick={() => navigate(-1)}
-              className="absolute top-4 left-4 w-10 h-10 flex items-center justify-center rounded-full bg-white border text-2xl font-bold hover:bg-gray-100 transition"
+              className="absolute top-[10%] left-4 w-10 h-10 flex items-center justify-center rounded-full bg-white border text-2xl font-bold hover:bg-gray-100 transition"
             >
               <LuMoveLeft />
             </button>

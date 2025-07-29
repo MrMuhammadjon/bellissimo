@@ -31,21 +31,6 @@ const ComboDetalis = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  if (responsive) {
-    return (
-      <div className="min-h-screen flex items-center justify-center text-center px-6">
-        <p className="text-xl text-gray-600 font-medium">
-          Ushbu sahifa faqat kompyuter (desktop) ekranlarida ko‘rsatiladi.
-        </p>
-                <button
-          onClick={() => navigate(-1)}
-          className="absolute top-[20%] left-0 mt-2 ml-2 rounded-full shadow-sm w-10 h-10 text-2xl font-bold hover:text-gray-600 transition flex items-center justify-center bg-white border border-gray-200 hover:bg-gray-100"
-        >
-          <LuMoveLeft />
-        </button>
-      </div>
-    );
-  }
 
   if (loading) {
     return (
@@ -64,84 +49,172 @@ const ComboDetalis = () => {
   }
 
   return (
-    <div className="hidden md:grid grid-cols-2 gap-10 max-w-6xl mx-auto p-6 py-20">
-      <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5 }}
-        className="relative"
-      >
-        <img
-          src={product.img}
-          alt="Combo"
-          className="rounded-xl w-full object-cover"
-        />
-        <button
-          onClick={() => navigate(-1)}
-          className="absolute top-0 left-0 mt-2 ml-2 rounded-full shadow-sm w-10 h-10 text-2xl font-bold hover:text-gray-600 transition flex items-center justify-center bg-white border border-gray-200 hover:bg-gray-100"
-        >
-          <LuMoveLeft />
-        </button>
-        <div className="mt-4">
-          <h2 className="text-2xl font-bold">{product.name}</h2>
-          <p className="text-gray-600">
-            {product.description || "Bu combo haqida ma'lumot mavjud emas."}
-          </p>
-        </div>
-      </motion.div>
-
-      <div className="flex flex-col justify-between gap-6">
-        <div className="space-y-4">
-          {product.comboItems.map((item, idx) => {
-            const variants = [
-              { initial: { opacity: 0, y: 50 }, animate: { opacity: 1, y: 0 } },
-              { initial: { opacity: 0, x: -50 }, animate: { opacity: 1, x: 0 } },
-              { initial: { opacity: 0, x: 50 }, animate: { opacity: 1, x: 0 } },
-            ];
-            const variant = variants[idx % variants.length];
-
-            return (
+    <>
+      {
+        !responsive ?
+          (
+            <div className="hidden md:grid grid-cols-2 gap-10 max-w-6xl mx-auto p-6 py-20" >
               <motion.div
-                key={idx}
-                initial={variant.initial}
-                animate={variant.animate}
-                transition={{ delay: 0.1 * idx, duration: 0.5 }}
-                className="flex items-center justify-between bg-white p-4 rounded-xl shadow hover:-translate-y-0.5 transform duration-300 hover:shadow-lg"
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                className="relative"
               >
-                <div className="flex items-center gap-4">
-                  <img
-                    src={item.img}
-                    alt={item.name}
-                    className="w-16 h-16 object-cover"
-                  />
-                  <span className="font-semibold">{item.name}</span>
+                <img
+                  src={product.img}
+                  alt="Combo"
+                  className="rounded-xl w-full object-cover"
+                />
+                <button
+                  onClick={() => navigate(-1)}
+                  className="absolute top-0 left-0 mt-2 ml-2 rounded-full shadow-sm w-10 h-10 text-2xl font-bold hover:text-gray-600 transition flex items-center justify-center bg-white border border-gray-200 hover:bg-gray-100"
+                >
+                  <LuMoveLeft />
+                </button>
+                <div className="mt-4">
+                  <h2 className="text-2xl font-bold">{product.name}</h2>
+                  <p className="text-gray-600">
+                    {product.description || "Bu combo haqida ma'lumot mavjud emas."}
+                  </p>
                 </div>
               </motion.div>
-            );
-          })}
-        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="space-y-2"
-        >
-          <div className="flex items-center justify-between text-lg font-bold">
-            <span>Umumiy narx:</span>
-            <div>
-              <span className="line-through text-gray-400 mr-2">
-                {product.price} so'm
-              </span>
-              <span className="text-green-700">{product.discount} so'm</span>
+              <div className="flex flex-col justify-between gap-6">
+                <div className="space-y-4">
+                  {product.comboItems.map((item, idx) => {
+                    const variants = [
+                      { initial: { opacity: 0, y: 50 }, animate: { opacity: 1, y: 0 } },
+                      { initial: { opacity: 0, x: -50 }, animate: { opacity: 1, x: 0 } },
+                      { initial: { opacity: 0, x: 50 }, animate: { opacity: 1, x: 0 } },
+                    ];
+                    const variant = variants[idx % variants.length];
+
+                    return (
+                      <motion.div
+                        key={idx}
+                        initial={variant.initial}
+                        animate={variant.animate}
+                        transition={{ delay: 0.1 * idx, duration: 0.5 }}
+                        className="flex items-center justify-between bg-white p-4 rounded-xl shadow hover:-translate-y-0.5 transform duration-300 hover:shadow-lg"
+                      >
+                        <div className="flex items-center gap-4">
+                          <img
+                            src={item.img}
+                            alt={item.name}
+                            className="w-16 h-16 object-cover"
+                          />
+                          <span className="font-semibold">{item.name}</span>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="space-y-2"
+                >
+                  <div className="flex items-center justify-between text-lg font-bold">
+                    <span>Umumiy narx:</span>
+                    <div>
+                      <span className="line-through text-gray-400 mr-2">
+                        {product.price} so'm
+                      </span>
+                      <span className="text-green-700">{product.discount} so'm</span>
+                    </div>
+                  </div>
+                  <button className="bg-green-600 hover:bg-green-700 text-white w-full py-3 rounded-full font-semibold">
+                    Savatga qo‘shish
+                  </button>
+                </motion.div>
+              </div>
+            </div >
+          )
+          :
+          (
+          <div className=" grid grid-cols-1 gap-10 mx-auto p-6 py-20" >
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="relative"
+            >
+              <img
+                src={product.img}
+                alt="Combo"
+                className="rounded-xl w-full object-cover"
+              />
+              <button
+                onClick={() => navigate(-1)}
+                className="absolute top-0 left-0 mt-2 ml-2 rounded-full shadow-sm w-10 h-10 text-2xl font-bold hover:text-gray-600 transition flex items-center justify-center bg-white border border-gray-200 hover:bg-gray-100"
+              >
+                <LuMoveLeft />
+              </button>
+              <div className="mt-4">
+                <h2 className="text-2xl font-bold">{product.name}</h2>
+                <p className="text-gray-600">
+                  {product.description || "Bu combo haqida ma'lumot mavjud emas."}
+                </p>
+              </div>
+            </motion.div>
+
+            <div className="flex flex-col justify-between gap-6">
+              <div className="space-y-4">
+                {product.comboItems.map((item, idx) => {
+                  const variants = [
+                    { initial: { opacity: 0, y: 50 }, animate: { opacity: 1, y: 0 } },
+                    { initial: { opacity: 0, x: -50 }, animate: { opacity: 1, x: 0 } },
+                    { initial: { opacity: 0, x: 50 }, animate: { opacity: 1, x: 0 } },
+                  ];
+                  const variant = variants[idx % variants.length];
+
+                  return (
+                    <motion.div
+                      key={idx}
+                      initial={variant.initial}
+                      animate={variant.animate}
+                      transition={{ delay: 0.1 * idx, duration: 0.5 }}
+                      className="flex items-center justify-between bg-white p-4 rounded-xl shadow hover:-translate-y-0.5 transform duration-300 hover:shadow-lg"
+                    >
+                      <div className="flex items-center gap-4">
+                        <img
+                          src={item.img}
+                          alt={item.name}
+                          className="w-16 h-16 object-cover"
+                        />
+                        <span className="font-semibold">{item.name}</span>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="space-y-2"
+              >
+                <div className="flex items-center justify-between text-lg font-bold">
+                  <span>Umumiy narx:</span>
+                  <div>
+                    <span className="line-through text-gray-400 mr-2">
+                      {product.price} so'm
+                    </span>
+                    <span className="text-green-700">{product.discount} so'm</span>
+                  </div>
+                </div>
+                <button className="bg-green-600 hover:bg-green-700 text-white w-full py-3 rounded-full font-semibold">
+                  Savatga qo‘shish
+                </button>
+              </motion.div>
             </div>
-          </div>
-          <button className="bg-green-600 hover:bg-green-700 text-white w-full py-3 rounded-full font-semibold">
-            Savatga qo‘shish
-          </button>
-        </motion.div>
-      </div>
-    </div>
+          </div >)
+      }
+    </>
+
   );
 };
 
